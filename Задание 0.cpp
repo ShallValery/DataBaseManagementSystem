@@ -120,7 +120,10 @@ void InsertionSort(int* array, size_t size)
 string Print(int* array, size_t size)
 {
     string massive;
-    for (int i = 0; i < size; i++)
-        massive = massive + to_string(array[i]) + ' ';
-    return massive;
+    stringstream buffer;
+    for (size_t i = 0; i < size; i++)
+    {
+        buffer << array[i];
+    }
+    return buffer.str();
 }
