@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <random>
-#include <string>
+#include <sstream>
 using namespace std;
 
 /**
@@ -18,14 +18,14 @@ using namespace std;
  * \return Возвращает int значение длинны массива
  *         В случае неверного ввода длинны массива - бросает исключение
  */
-size_t GetSize(const string message);
+size_t GetSize(const string& message);
 
 /**
  *\brief Функция для выделения памяти для массива
  *\param size Размер выделяемой памяти
  *\return Указатель на выделенный в памяти массив
  */
-int* CreateVector(const int size);
+int* CreateVector(const size_t size);
 
 
 /**
@@ -53,11 +53,7 @@ void  FillRandome(size_t size, int* array);
 */
 string Print(int* array, size_t size);
 
-/**
- * \brief Основная программа. Осуществляет вызов вышеперечисленных функций
- *
- * \return Возвращает 0 при успешной работе программы
- */
+
 int main()
 {
     setlocale(0, "");
@@ -70,7 +66,7 @@ int main()
     return 0;
 }
 
-size_t GetSize(const string message)
+size_t GetSize(const string& message)
 {
     int value;
     cout << message;
@@ -83,7 +79,7 @@ size_t GetSize(const string message)
     return value;
 }
 
-int* CreateVector(const int size)
+int* CreateVector(const size_t size)
 {
     int* array = new int[size];
     return array;
@@ -97,7 +93,7 @@ void  FillRandome(size_t size, int* array)
     mt19937 gen(rd());
     uniform_int_distribution<> distrib(LowLimit, HightLimit);
 
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         array[i] = distrib(gen);
     }
@@ -117,13 +113,12 @@ void InsertionSort(int* array, size_t size)
 
 }
 
-string Print(int* array, size_t size)
+string Print(int* array, const size_t size)
 {
-    string massive;
     stringstream buffer;
-    for (size_t i = 0; i < size; i++)
+    for (size_t index = 0; index < size; index++)
     {
-        buffer << array[i];
+        buffer << array[index] << " ";
     }
     return buffer.str();
 }
