@@ -103,7 +103,7 @@ void InsertionSort(int* array, const size_t size)
 {
     for (size_t i = 1; i < size; i++)
     {
-        int j = i - 1;
+        size_t j = i - 1;
         while (j >= 0 && array[j] > array[j + 1])
         {
             swap(array[j], array[j + 1]);
