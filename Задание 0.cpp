@@ -34,7 +34,7 @@ int* CreateVector(const size_t size);
  * \param array
  * \param size
  */
-void InsertionSort(int* array, size_t size);
+void InsertionSort(int* array, const size_t size);
 
 /**
  * Функция заполнения массива псевдослучайными числами.
@@ -42,7 +42,7 @@ void InsertionSort(int* array, size_t size);
  * \param size Размер массива
  * \param array Указатель на массив
  */
-void  FillRandome(size_t size, int* array);
+void  FillRandome(const size_t size, int* array);
 
 /**
 *\brief Функция вывода массива
@@ -51,7 +51,7 @@ void  FillRandome(size_t size, int* array);
 * \param size Размер массива
 * \return Возвращает строку символов массива
 */
-string Print(int* array, size_t size);
+string Print(int* array, const size_t size);
 
 
 int main()
@@ -85,7 +85,7 @@ int* CreateVector(const size_t size)
     return array;
 }
 
-void  FillRandome(size_t size, int* array)
+void  FillRandome(const size_t size, int* array)
 {
     int LowLimit = -100;
     int HightLimit = 100;
@@ -99,9 +99,9 @@ void  FillRandome(size_t size, int* array)
     }
 }
 
-void InsertionSort(int* array, size_t size)
+void InsertionSort(int* array, const size_t size)
 {
-    for (int i = 1; i < size; i++)
+    for (size_t i = 1; i < size; i++)
     {
         int j = i - 1;
         while (j >= 0 && array[j] > array[j + 1])
