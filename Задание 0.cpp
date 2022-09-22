@@ -58,7 +58,7 @@ int main()
 {
     setlocale(0, "");
 
-    int size = GetSize("Введите размер массива ");
+    const size_t size = GetSize("Введите размер массива ");
     int* array = CreateVector(size);
     FillRandome(size, array);
     InsertionSort(array, size);
