@@ -1,101 +1,100 @@
-﻿#pragma once
+﻿/*****************************************************************//**
+ * \file   DEC.h
+ * \brief  Реализация DECK
+ *
+ * \author Куминов Валерий ТКИ - 441 (ShallValery)
+ * \date   October 2022
+ *********************************************************************/
+#pragma once
+#include "NODE.h"
+#include <iostream>
 
-
-class Node {
-    int value_t;
-    Node* next;
-public:
-    /*
-    \brief Метод будет являться конструктором с параметрами для класса Node.
-    \param value - значение, которое будет записано в элементе дека.
-    */
-    Node(const int value) { value_t = value; next = nullptr; };
-    friend class Deck;
-};
-
-class Deck {
-    Node* head, * bottom;
+class Deck 
+{
+    Node* head,* bottom;
     size_t size;
 
-   /*
-   \brief Метод будет запрещать конструктор копирования.
-   \param Stack& - указатель на Stack
-   */
+    /*
+    \brief Запрет конструктора копирования.
+    \param const Deck& - указатель на Deck
+    */
     Deck(const Deck&) = delete;
 
     /*
-    \brief Метод будет запрещать оператор присваивания копирования.
-    \param Stack& - указатель на Stack
+    \brief Запрет оператора присваивания копирования.
+    \param Deck& - указатель на Deck
     */
     Deck& operator=(const Deck&) = delete;
 
     /*
     \brief Запрет конструктора перемещения.
-    \param const Stack&& - указатель на Stack
+    \param Deck&& - указатель на Deck
     */
     Deck(Deck&&) = delete;
 
     /*
     \brief Запрет оператора присваивания перемещения.
-    \param Stack&& - указатель на Stack
+    \param Deckk&& - указатель на Deck
     */
     Deck& operator=(Deck&&) = delete;
+   
 
 public:
+
     /*
-    \brief Метод будет являться конструктором по умолчанию для класса Deck.
+    \brief Конструктор по умолчанию для класса Deck.
     */
     Deck() :head(nullptr), bottom(nullptr), size(0) {};
 
     /*
-    \brief Метод будет вносить новый элемент в дек справа.
+    \brief Метод вноса нового элемента в ДЕК справа.
     \param value - значение, которое будет записано в элементе дека.
     */
-    void movieR(const int value);
+    void PushRight(const int value);
 
     /*
-    \brief Метод будет вносить новый элемент в дек слева.
+    \brief Метод вноса нового элемента в ДЕК слева.
     \param value - значение, которое будет записано в элементе дека.
     */
-    void movieL(const int value);
+    void PushLeft(const int value);
 
     /*
-    \brief Метод будет удаляеть из дека элемент справа.
+    \brief Метод удаления из ДЕКа элемента справа.
     */
-    int deletionR();
+    int DeleteRight();
 
     /*
-    \brief Метод будет удалять из дека элемент слева.
+    \brief Метод удаления из ДЕКа элемента слева.
     */
-    int deletionL();
+    int DeleteLeft();
 
     /*!
-    \brief Метод вернет количество элементов в деке.
+    \brief Метод возврата количества элементов в ДЕКе.
     */
-    size_t getSize();
+    size_t GetSize();
 
     /*
-    \brief Метод будет изменяеть элемент дека справа.
+    \brief Метод изменения элемента ДЕКа справа.
     \param value - значение, которое будет записано в элементе дека.
     */
-    void changeR(const int value);
+    void ChangeRight(const int value);
 
     /*
-    \brief Метод будет изменяеть элемент дека слева.
+    \brief Метод изменения элемента ДЕКа слева.
     \param value - значение, которое будет записано в элементе дека.
     */
-    void changeL(const int value);
+    void ChangeLeft(const int value);
 
 
     /*
     \brief Метод будет выводить на экран элемент дека справа.
     */
-    int printR();
-    friend ostream& operator<< (ostream& out, Deck& deck);
+    int PrintRight();
 
     /*!
     \brief Метод будет выводить на экран элемент дека слева.
     */
-    int printL();
+    int PrintLeft();
 
+    friend std::ostream& operator<< (std::ostream& out, Deck& deck);
 };
