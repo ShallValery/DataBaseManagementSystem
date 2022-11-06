@@ -25,7 +25,7 @@ void PrintElements(Deck& M) {
     }
     else {
         cout << M.PrintLeft() << " ";
-        for (int i = 2; i < M.GetSize(); i++) {
+        for (size_t i = 2; i < M.GetSize(); i++) {
             cout << "__ ";
         };
         cout << M.PrintRight() << endl;

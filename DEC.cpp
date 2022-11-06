@@ -54,7 +54,7 @@ int Deck::DeleteRight() noexcept
     }
     else {
         Node* tempNode = head;
-        for (int i = 1; i < size - 1; i++) 
+        for (size_t i = 1; i < size - 1; i++) 
         {
             tempNode = tempNode->next;
         }
