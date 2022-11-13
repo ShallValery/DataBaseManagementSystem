@@ -44,9 +44,11 @@ void Deck::PushLeft(const int value) noexcept
     size++;
 };
 
-int Deck::DeleteRight() noexcept
+int Deck::DeleteRight() 
 {
+    if (size == 0) throw out_of_range("Пусто");
     const int value = bottom->_value;
+       
     if (size == 1) {
         delete head;
         head = nullptr;
@@ -65,10 +67,13 @@ int Deck::DeleteRight() noexcept
     size--;
     return value;
 };
-int Deck::DeleteLeft() noexcept
+int Deck::DeleteLeft() 
 {
+    if (size == 0) throw out_of_range("Пусто");
     const int value = head->_value;
-    if (size == 1) {
+    
+    if 
+        (size == 1) {
         delete head;
         head = nullptr;
         bottom = nullptr;
@@ -82,14 +87,16 @@ int Deck::DeleteLeft() noexcept
     return value;
 };
 
-void Deck::ChangeLeft(const int value) noexcept
+void Deck::ChangeLeft(const int value) 
 {
+    if (size == 0) throw out_of_range("Пусто");
     this->DeleteLeft();
     this->PushLeft(value);
 };
 
-void Deck::ChangeRight(const int value) noexcept
+void Deck::ChangeRight(const int value) 
 {
+    if (size == 0) throw out_of_range("Пусто");
     this->DeleteRight();
     this->PushRight(value);
 };

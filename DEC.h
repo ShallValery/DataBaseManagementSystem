@@ -39,6 +39,11 @@ public:
     Deck() :head(nullptr), bottom(nullptr), size(0) {};
 
     /*
+    \brief Деструктор  для класса Deck.
+    */
+    ~Deck() {};
+
+    /*
     \brief Метод вноса нового элемента в ДЕК справа.
     \param value - значение, которое будет записано в элементе дека.
     */
@@ -53,12 +58,12 @@ public:
     /*
     \brief Метод удаления из ДЕКа элемента справа.
     */
-    int DeleteRight() noexcept;
+    int DeleteRight();
 
     /*
     \brief Метод удаления из ДЕКа элемента слева.
     */
-    int DeleteLeft() noexcept;
+    int DeleteLeft();
 
     /*!
     \brief Метод возврата количества элементов в ДЕКе.
@@ -69,13 +74,13 @@ public:
     \brief Метод изменения элемента ДЕКа справа.
     \param value - значение, которое будет записано в элементе дека.
     */
-    void ChangeRight(const int value) noexcept;
+    void ChangeRight(const int value);
 
     /*
     \brief Метод изменения элемента ДЕКа слева.
     \param value - значение, которое будет записано в элементе дека.
     */
-    void ChangeLeft(const int value) noexcept;
+    void ChangeLeft(const int value);
 
 
     /*

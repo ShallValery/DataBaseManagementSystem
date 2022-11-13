@@ -8,16 +8,17 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace DeckTests
 {
 	TEST_CLASS(DeckTests)
+
 	{
 	public:
 
-		TEST_METHOD(Default_constructor_successed)
+		TEST_METHOD(Default_valid_data_constructor_successed)
 		{
 			Deck a;
 			Assert::IsTrue(a.GetSize() == 0);
 		}
-
-		TEST_METHOD(PushLeft_successed)
+			
+		TEST_METHOD(PushLeft_valid_data_successed)
 		{
 			Deck a;
 			size_t size = 9;
@@ -34,7 +35,7 @@ namespace DeckTests
 			}
 		}
 
-		TEST_METHOD(PushRight_successed)
+		TEST_METHOD(PushRight_valid_data_successed)
 		{
 			Deck a;
 			size_t size = 9;
@@ -51,9 +52,17 @@ namespace DeckTests
 			}
 		}
 
-		TEST_METHOD(DeleteLeft_successed)
+		TEST_METHOD(DeleteLeft_invalid_data_successed)
 		{
 			Deck a;
+			Assert::ExpectException<std::out_of_range>([&]() {a.DeleteLeft(); });
+			
+		}
+
+		TEST_METHOD(DeleteLeft_valid_data_successed)
+		{
+			Deck a;
+
 			int LowLimit = -100;
 			int HightLimit = 100;
 			random_device rd;
@@ -62,9 +71,17 @@ namespace DeckTests
 			int k = distrib(gen);
 			a.PushLeft(k);
 			Assert::IsTrue(k == a.DeleteLeft());
+
 		}
 
-		TEST_METHOD(DeleteRight_successed)
+		TEST_METHOD(DeleteRight_invalid_data_successed)
+		{
+			Deck a;
+			Assert::ExpectException<std::out_of_range>([&]() {a.DeleteRight(); });
+
+		}
+
+		TEST_METHOD(DeleteRight_valid_data_successed)
 		{
 			Deck a;
 			int LowLimit = -100;
@@ -77,7 +94,7 @@ namespace DeckTests
 			Assert::IsTrue(k == a.DeleteRight());
 		}
 
-		TEST_METHOD(GetSize_successed)
+		TEST_METHOD(GetSize_valid_data_successed)
 		{
 			Deck a;
 			int LowLimit = -100;
@@ -90,7 +107,7 @@ namespace DeckTests
 			Assert::IsTrue(a.GetSize() == 1);
 		}
 
-		TEST_METHOD(PrintLeft_successed)
+		TEST_METHOD(PrintLeft_valid_data_successed)
 		{
 			Deck a;
 			int LowLimit = -100;
@@ -103,7 +120,7 @@ namespace DeckTests
 			Assert::IsTrue(k == a.PrintLeft());
 		}
 
-		TEST_METHOD(PrintRight_successed)
+		TEST_METHOD(PrintRight_valid_data_successed)
 		{
 			Deck a;
 			int LowLimit = -100;
@@ -116,7 +133,14 @@ namespace DeckTests
 			Assert::IsTrue(k == a.PrintRight());
 		}
 
-		TEST_METHOD(ChangeLeft_successed)
+		TEST_METHOD(ChangeLeft_invalid_data_successed)
+		{
+			Deck a;
+			int k = 1;
+			Assert::ExpectException<std::out_of_range>([&]() {a.ChangeLeft(k); });
+		}
+
+		TEST_METHOD(ChangeLeft_valid_data_successed)
 		{
 			Deck a;
 			size_t size = 9;
@@ -132,7 +156,7 @@ namespace DeckTests
 			Assert::IsTrue(k == a.PrintLeft());
 		}
 
-		TEST_METHOD(ChangeRight_successed)
+		TEST_METHOD(ChangeRight_valid_data_successed)
 		{
 			Deck a;
 			int LowLimit = -100;

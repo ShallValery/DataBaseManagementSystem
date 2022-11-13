@@ -61,24 +61,54 @@ int main()
             cout << "Добавлено." << endl;
             break;
         case '4':
-            M.DeleteLeft();
-            cout << "Удалено." << endl;
+            try
+            {
+                M.DeleteLeft();
+                cout << "Удалено." << endl;
+            }
+            catch (...)
+            {
+                std::cout << "Пустой ДЕК!" << std::endl;
+            }
+            
             break;
         case '5':
-            M.DeleteRight();
-            cout << "Удалено." << endl;
+            try
+            {
+                M.DeleteRight();
+                cout << "Удалено." << endl;
+            }
+            catch (...)
+            {
+                std::cout << "Пустой ДЕК!" << std::endl;
+            }
+            
             break;
         case '6':
             cout << "Введите новое значение: ";
             cin >> k;
-            M.ChangeLeft(k);
+            try
+            {
+                M.ChangeLeft(k);
+            }
+            catch (...)
+            {
+                std::cout << "Пустой ДЕК!" << std::endl;
+            }
             cout << "Изменено." << endl;
             break;
         case '7':
             cout << "Введите новое значение: ";
             cin >> k;
-            M.ChangeRight(k);
-            cout << "Изменено." << endl;
+            try
+            {
+                M.ChangeLeft(k);
+                cout << "Изменено." << endl;
+            }
+            catch (...)
+            {
+                std::cout << "Пустой ДЕК!" << std::endl;
+            }
             break;
         case '8':
             if (M.GetSize() == 0)
@@ -92,9 +122,9 @@ int main()
             }
             break;
 
-            system("pause");
-
         }
-        return 0;
+
+        system("pause");    
     }
+    return 0;
 }
