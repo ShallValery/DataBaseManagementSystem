@@ -19,25 +19,25 @@ public:
     */
     ~Deck() noexcept;
     /*
-    \brief Запрет конструктора копирования.
+    \brief  Конструктор копирования.
     \param const Deck& - указатель на Deck
     */
     Deck(const Deck&) noexcept;
 
     /*
-    \brief Запрет конструктора перемещения.
+    \brief  Конструктор перемещения.
     \param Deck&& - указатель на Deck
     */
     Deck(const Deck&&) noexcept;
 
     /*
-    \brief Запрет оператора присваивания копирования.
+    \brief Оператор присваивания копирования.
     \param Deck& - указатель на Deck
     */
     Deck& operator=(const Deck&) noexcept;
 
     /*
-    \brief Запрет оператора присваивания перемещения.
+    \brief Оператор присваивания перемещения.
     \param Deckk&& - указатель на Deck
     */
     Deck& operator=(const Deck&&) noexcept;
