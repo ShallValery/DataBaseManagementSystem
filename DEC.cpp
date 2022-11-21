@@ -13,7 +13,7 @@ const size_t Deck::GetSize() noexcept
 
 Deck::~Deck() noexcept
 {
-    for (size_t i = 0; i < size; i++) {
+    for (size_t i =  0; i < size; i++) {
         this->DeleteRight();
     };
     size = 0;
