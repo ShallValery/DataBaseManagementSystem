@@ -13,7 +13,7 @@ const size_t Deck::GetSize() noexcept
 
 Deck::~Deck() noexcept
 {
-    for (size_t i =  0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) {
         this->DeleteRight();
     };
     size = 0;
@@ -44,7 +44,7 @@ Deck::Deck(const Deck&& other) noexcept
             this->PushRight(temp->_value);
             temp = temp->next;
         }
-        other.~Deck();
+        other.Clean();
     }
 };
 
@@ -72,7 +72,7 @@ Deck& Deck::operator=(const Deck&& other) noexcept
             this->PushRight(temp->_value);
             temp = temp->next;
         }
-        other.~Deck();
+        other.Clean();
     }
     return *this;
 };
@@ -91,6 +91,15 @@ void Deck::PushRight(const int value) noexcept
     };
     size++;
 };
+
+void Deck::Clean() noexcept
+{
+    for (size_t i = 0; i < size; i++) 
+    {
+        this->DeleteRight();
+    };
+    size = 0;
+}
 
 void Deck::PushLeft(const int value) noexcept
 {
